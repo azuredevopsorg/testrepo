@@ -18,6 +18,6 @@ steps:
     regionName: 'us-east-1'
     stackName: 'jenkins'
     templateSource: 'file'
-    templateFile: '$(Build.SourcesDirectory))/template1'
+    templateFile: '$(Build.SourcesDirectory)/template1'
 
 

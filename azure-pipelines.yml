@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
+- script:  echo Hello, world!
   displayName: 'Run a one-line script'
 
 
@@ -21,13 +21,12 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- task: S3Upload@1
+
+
+- task: S3Download@1
   inputs:
     awsCredentials: 'testaws'
     regionName: 'us-east-1'
     bucketName: 'azurebucketdevops'
-    sourceFolder: 'testsource'
     globExpressions: '**'
-    targetFolder: 'targetfolder'
-    filesAcl: 'bucket-owner-full-control'
-    createBucket: true
+    targetFolder: '$(Build.SourcesDirectory)'

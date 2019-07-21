@@ -19,5 +19,14 @@ steps:
     stackName: 'jenkins'
     templateSource: 'file'
     templateFile: '$(Build.SourcesDirectory)/template1'
+- task: CloudFormationCreateOrUpdateStack@1
+  inputs:
+    awsCredentials: 'newaws'
+    regionName: 'us-east-1'
+    stackName: 'jenkins'
+    templateSource: 's3'
+    s3BucketName: 'cf-templates-1sflxoazv6rb5-us-east-1'
+    s3ObjectKey: '2019202gP1-template173aac9e5607'
+    
 
 

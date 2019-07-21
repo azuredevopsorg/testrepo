@@ -25,11 +25,13 @@ steps:
 
 
     
+
+
 - task: S3Upload@1
   inputs:
-    awsCredentials: 'testaws'
+    awsCredentials: 'newaws'
     regionName: 'us-east-1'
-    bucketName: 'devbucket_ta'
+    bucketName: 'tempyum'
     sourceFolder: '$(Build.SourcesDirectory)'
     globExpressions: '**'
     filesAcl: 'public-read'

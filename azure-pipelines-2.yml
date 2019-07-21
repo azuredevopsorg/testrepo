@@ -21,7 +21,7 @@ steps:
         stackName: 's3bucket'
         templateSource: 's3'
         s3BucketName: 'cf-templates-1sflxoazv6rb5-us-east-1'
-        s3ObjectKey: '2019202kVD-s3template-cfyitw228dkk9'
+        s3ObjectKey: '2019202jz1-stattachementp1swxrybuu'
 
 
     

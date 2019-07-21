@@ -12,5 +12,11 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+- task: AWSCLI@1
+  inputs:
+    awsCredentials: 'newaws'
+    regionName: 'us-east-1'
+    awsCommand: 's3'
+    awsSubCommand: 'ls'
 
 

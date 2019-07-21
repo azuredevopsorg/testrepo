@@ -16,7 +16,7 @@ steps:
 
 - task: CloudFormationCreateOrUpdateStack@1
   inputs:
-        awsCredentials: 'newaws'
+        awsCredentials: 'cf-access'
         regionName: 'us-east-1'
         stackName: 's3bucket'
         templateSource: 's3'

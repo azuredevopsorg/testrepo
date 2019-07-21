@@ -14,9 +14,7 @@ steps:
   displayName: 'Run a one-line script'
 
 
-- task: Bash@3
-  inputs:
-    filePath: '/bin/ls'
+
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.

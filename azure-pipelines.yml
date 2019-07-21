@@ -23,10 +23,14 @@ steps:
 
 
 
-- task: S3Download@1
+
+    
+- task: S3Upload@1
   inputs:
     awsCredentials: 'testaws'
     regionName: 'us-east-1'
-    bucketName: 'cf-templates-1sflxoazv6rb5-us-east-1'
+    bucketName: 'devbucket_ta'
+    sourceFolder: '$(Build.SourcesDirectory)'
     globExpressions: '**'
-    targetFolder: '$(Build.SourcesDirectory)'
+    filesAcl: 'public-read'
+    createBucket: true'

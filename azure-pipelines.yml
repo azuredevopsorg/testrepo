@@ -27,6 +27,6 @@ steps:
   inputs:
     awsCredentials: 'testaws'
     regionName: 'us-east-1'
-    bucketName: 'azurebucketdevops'
+    bucketName: 'cf-templates-1sflxoazv6rb5-us-east-1'
     globExpressions: '**'
     targetFolder: '$(Build.SourcesDirectory)'

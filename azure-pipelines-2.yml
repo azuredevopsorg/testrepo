@@ -18,17 +18,11 @@ steps:
   inputs:
         awsCredentials: 'newaws'
         regionName: 'us-east-1'
-        stackName: 'jenkins'
+        stackName: 's3bucket'
         templateSource: 's3'
         s3BucketName: 'cf-templates-1sflxoazv6rb5-us-east-1'
-        s3ObjectKey: '2019202gP1-template173aac9e5607'
-        templateParametersSource: 'inline'
-        templateParameters: |
-          ConnectionLocation: '183.83.213.6/32'
-          ImageId: 'ami-97785bed'
-          KeyName: 'jenkins'
-          OperatingSystem: 'amazonlinux'
-          SecurityGroupPort: '22'
+        s3ObjectKey: '2019202kVD-s3template-cfyitw228dkk9'
+
 
     
 

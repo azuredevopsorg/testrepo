@@ -1,4 +1,4 @@
-  # Use this code snippet in your app.
+ # Use this code snippet in your app.
 # If you need more information about configurations or implementing the sample code, visit the AWS docs:
 # https://aws.amazon.com/developers/getting-started/python/
 
@@ -7,14 +7,20 @@ import base64
 from botocore.exceptions import ClientError
 import json
 import pprint
-
+import optparse
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("secretid")
+args = parser.parse_args()
+print(args.secretid)
 
 f = open("awscredentials.json", 'r+')
 cred = json.load(f)
 f.close()
 
+optparse.gettext()
 def get_secret():
-    secret_name = "App/MyApp/RDSDBSecret"
+    secret_name =  args.secretid
     region_name = "us-east-1"
 
     # Create a Secrets Manager client
@@ -62,11 +68,11 @@ def get_secret():
         # Depending on whether the secret is a string or binary, one of these fields will be populated.
         if 'SecretString' in get_secret_value_response:
             secret = json.loads(get_secret_value_response['SecretString'])
-#             pprint.pprint(secret)
-#             print(secret['username'])
-#             print(secret['password'])
+            pprint.pprint(secret)
+            print(secret['username'])
+            print(secret['password'])
             print('##vso[task.setvariable variable=username;]%s' % (secret['username']))
-            print('##vso[task.setvariable variable=password;]%s' % (secret['password']) )
+            print('##vso[task.setvariable variable=password;]%s' % (secret['password']))
         else:
             decoded_binary_secret = base64.b64decode(get_secret_value_response['SecretBinary'])
 

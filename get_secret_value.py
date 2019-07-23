@@ -18,7 +18,7 @@ f = open("awscredentials.json", 'r+')
 cred = json.load(f)
 f.close()
 
-optparse.gettext()
+
 def get_secret():
     secret_name =  args.secretid
     region_name = "us-east-1"

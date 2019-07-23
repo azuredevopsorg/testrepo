@@ -6,6 +6,7 @@ import boto3
 import base64
 from botocore.exceptions import ClientError
 import json
+import os
 import pprint
 import optparse
 import argparse
@@ -27,7 +28,9 @@ def get_secret():
     session = boto3.session.Session()
     client = session.client(
         service_name='secretsmanager',
-        region_name=region_name
+        region_name=region_name,
+        aws_access_key_id=os.getenv("AWS.AccessKeyID"),
+        aws_secret_access_key=os.getenv("AWS.SecretAccessKey")
     )
 
     # In this sample we only handle the specific exceptions for the 'GetSecretValue' API.

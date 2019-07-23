@@ -62,9 +62,11 @@ def get_secret():
         # Depending on whether the secret is a string or binary, one of these fields will be populated.
         if 'SecretString' in get_secret_value_response:
             secret = json.loads(get_secret_value_response['SecretString'])
-            pprint.pprint(secret)
-            print(secret['username'])
-            print(secret['password'])
+#             pprint.pprint(secret)
+#             print(secret['username'])
+#             print(secret['password'])
+            print('##vso[task.setvariable variable=username;]%s' % (secret['username']))
+            print('##vso[task.setvariable variable=password;]%s' % (secret['password']) )
         else:
             decoded_binary_secret = base64.b64decode(get_secret_value_response['SecretBinary'])
 

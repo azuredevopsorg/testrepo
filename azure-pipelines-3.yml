@@ -1,0 +1,58 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+
+
+
+
+pool:
+  name: Hosted Ubuntu 1604
+  variables:
+  - group: AWS-cred
+#Your build pipeline references an undefined variable named ‘aws_secret_access_key’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ‘username’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ‘password’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ‘username’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ‘password’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+
+steps:
+- script: |
+   echo Write your commands here
+   
+   echo Use the environment variables input below to pass secret variables to this script
+   sudo pip install boto3
+   
+   
+   
+   
+  displayName: 'Command Line Script'
+
+- script: |
+   echo Write your commands here
+   
+   echo Use the environment variables input below to pass secret variables to this script
+   
+   echo $aws_secret_access_key
+   echo $(aws_secret_access_key)
+  displayName: 'Command Line Script'
+
+- task: PythonScript@0
+  displayName: 'Run a Python script'
+  inputs:
+    scriptPath: 'get_secret_value.py'
+    arguments: App/MyApp/RDSDBSecret
+
+- script: |
+   echo Write your commands here
+   
+   echo Use the environment variables input below to pass secret variables to this script
+   echo USERNAME=$(username)
+   echo PASSWORD=$(password)
+   echo USERNAME=$(username) >> parameters.list
+   echo PASSWORD=$(password) >> parameters.list
+  displayName: 'Command Line Script'

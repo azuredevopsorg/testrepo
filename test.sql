@@ -6,7 +6,7 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA myschema GRANT SELECT ON TABLES TO readonly;
 
 -- Users creation
 
-CREATE USER app_user1 WITH PASSWORD $password;
+CREATE USER $user WITH PASSWORD $password;
 
 
 -- Grant privileges to users
